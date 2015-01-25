@@ -14,6 +14,7 @@ gem 'jbuilder',     '2.2.3'
 gem "carrierwave"
 gem "rmagick"
 gem 'sdoc',         '0.4.0', group: :doc
+gem 'carrierwave',  '0.10'
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'

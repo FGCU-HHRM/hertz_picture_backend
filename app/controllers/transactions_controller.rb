@@ -1,4 +1,5 @@
 class TransactionsController < ApplicationController
+<<<<<<< HEAD
   before_action :loggedIn
   
   def search
@@ -60,4 +61,21 @@ class TransactionsController < ApplicationController
       end
   end
   
+=======
+  def show
+  end
+
+  def new
+    @product = Product.new
+  end
+
+  def create
+  end
+
+  def index
+  end
+
+  def destroy
+  end
+>>>>>>> carrierwave
 end

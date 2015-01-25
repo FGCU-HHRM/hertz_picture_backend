@@ -172,7 +172,7 @@ DEPENDENCIES
   bootstrap-sass (= 3.2.0.0)
   bootstrap-will_paginate (= 0.0.10)
   byebug (= 3.4.0)
-  carrierwave
+  carrierwave (= 0.10)
   coffee-rails (= 4.1.0)
   jbuilder (= 2.2.3)
   jquery-rails (= 4.0.3)
