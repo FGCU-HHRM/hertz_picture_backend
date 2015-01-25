@@ -4,9 +4,9 @@ Rails.application.routes.draw do
     member do
       get 'history'
       get 'rent', to: 'products#prerent'
-      post 'rent', to: 'products#postrent'
+      post 'rent[/:pic_id]', to: 'products#postrent'
       get 'return', to: 'products#prereturn'
-      post 'return', to: 'products#postreturn'
+      post 'return[/:pic_id]', to: 'products#postreturn'
     end
     collection do
       get 'search'

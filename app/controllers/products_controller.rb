@@ -19,11 +19,14 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.save
+        @success = 1
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
-        format.json { render :show, status: :created, location: @product }
+        format.json { render :create }
       else
+        @success = 0
+        @message = "could not save"
         format.html { render :new }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
+        format.json { render :create }
       end
     end
   end
@@ -44,6 +47,7 @@ class ProductsController < ApplicationController
   end
 
   def postrent
+    "uploads/#{model.class.to_s.underscore}/#{model.id}/#{mounted_as}"
   end
 
   def prereturn
