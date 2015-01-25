@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
   
+  get 'transactions/show'
+
+  get 'transactions/new'
+
+  get 'transactions/create'
+
+  get 'transactions/index'
+
+  get 'transactions/destroy'
+
   resources :products do
     member do
       get 'history'
