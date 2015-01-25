@@ -47,7 +47,13 @@ class ProductsController < ApplicationController
   end
 
   def postrent
-    "uploads/#{model.class.to_s.underscore}/#{model.id}/#{mounted_as}"
+    @transaction = Transaction.new(product_id: params[:id])
+    File.open('uploads/transaction/'+@transaction.id+'/' + mount(params[:pic_id]), "w+") do |f|
+      f.write(debug(params))
+    end
+    File.open('uploads/transaction/testparams', "w+") do |f|
+      f.write(debug(params))
+    end
   end
 
   def prereturn
@@ -68,7 +74,11 @@ class ProductsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_one
       @product = Product.find(params[:id])
-      @trans = Transaction.where(product_id: @product.id)
+      if @product.nil?
+        
+      else
+        @trans = Transaction.where(product_id: @product.id)
+      end
     end
     
     # Use callbacks to share common setup or constraints between actions.
@@ -80,5 +90,10 @@ class ProductsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
       params.require(:product).permit(:ic,:name)
+    end
+    
+    def mount( i )
+      mounts = ['north','north_east','north_west','south','south_east','south_west','easst','west']
+      mounts[i]
     end
 end

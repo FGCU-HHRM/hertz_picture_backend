@@ -13,5 +13,4 @@ class Transaction < ActiveRecord::Base
   mount_uploader :image2, PictureUploader
   mount_uploader :image3, PictureUploader
   mount_uploader :image4, PictureUploader
-  validates :name, presence: true
 end

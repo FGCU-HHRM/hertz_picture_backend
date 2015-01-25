@@ -13,12 +13,35 @@
 
   <div class="field">
     <%= f.label :Transaction_Type %><br>
-    <%= f.collection_select :transtype, Provider.order(:name), :name, :name, include_blank: false %>
+    <!--%= f.collection_select :transtype, Provider.order(:name), :name, :name, include_blank: false %-->
+    <%= f.select :transtype, ['Return','Rent'] %>
   </div>
   
   <div class="field">
-    <%= f.label :Images %><br>
-    <%= f.file_field :image %>
+  <%= f.label :north %>
+  <%= f.file_field :north %>
+  <%= f.label :north_east %>
+  <%= f.file_field :north_east %>
+  <%= f.label :north_west %>
+  <%= f.file_field :north_west %>
+  <%= f.label :south %>
+  <%= f.file_field :south %>
+  <%= f.label :south_east %>
+  <%= f.file_field :south_east %>
+  <%= f.label :south_west %>
+  <%= f.file_field :south_west %>
+  <%= f.label :east %>
+  <%= f.file_field :east %>
+  <%= f.label :west %>
+  <%= f.file_field :west %>
+  <%= f.label :image1 %>
+  <%= f.file_field :image1 %>
+  <%= f.label :image2 %>
+  <%= f.file_field :image2 %>
+  <%= f.label :image3 %>
+  <%= f.file_field :image3 %>
+  <%= f.label :image4 %>
+  <%= f.file_field :image4 %>
   </div>
   <div class="actions">
     <%= f.submit %>

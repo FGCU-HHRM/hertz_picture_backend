@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <script type="javascript">
+            poststuff()
+            function poststuff() {
+                alert('posting')
+                document.getElementById("bin").innerHTML = "<h1>Posting</h1>"
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    alert('loaded')
+                    var req = new XMLHttpRequest();
+                    req.open("POST","https://hertz-picture-backend-oalpha.c9.io/products/1/rent/0",true);
+                    req.sendAsBinary(reader.result);
+                }
+                reader.readAsBinaryString("uploads/transaction/2/north/158926135_cool-dj-darth-vader-t-shirt-l-sunglasses-shades-.jpg");
+            }
+        </script>
+    </head>
+    <body>
+        <div id="bin"></div>
+        <a href="javascript:poststuff();" onclick="poststuff();"><img src="uploads/transaction/2/north/158926135_cool-dj-darth-vader-t-shirt-l-sunglasses-shades-.jpg"></a>
+    </body>
+</html>

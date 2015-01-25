@@ -1,5 +1,4 @@
 class TransactionsController < ApplicationController
-<<<<<<< HEAD
   before_action :loggedIn
   
   def search
@@ -14,15 +13,10 @@ class TransactionsController < ApplicationController
   end
   
   def submit
-    product_id = params[:id]
-    ttype = params[:transaction][:transtype] # transaction type always shows as 0
-    image = params[:transaction][:image]
     
-    @product = Product.find(product_id)
-    @transaction = Transaction.new
-    @transaction.product_id = product_id
-    @transaction.transtype = ttype
-    @transaction.image = image
+    @product = Product.find(params[:id])
+    @transaction = Transaction.new(post_params)
+    @transaction.product_id = @product.id
     
     if @transaction.save
         redirect_to @product, :notice => "Transaction Saved"
@@ -34,12 +28,16 @@ class TransactionsController < ApplicationController
   
   def show
     @transaction = Transaction.find(params[:id])
+    @product = Product.find(@transaction.product_id)
     @ic = @transaction.product.ic
     @pics = @transaction.image
   end
   
   def new
    @product = Product.new
+  end
+
+  def destroy
   end
   
   def create
@@ -60,22 +58,10 @@ class TransactionsController < ApplicationController
         redirect_to login_url
       end
   end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def post_params
+      params.require(:transaction).permit(:transtype,:north,:north_east,:north_west,:south_east,:south_west,:east,:west)
+    end
   
-=======
-  def show
-  end
-
-  def new
-    @product = Product.new
-  end
-
-  def create
-  end
-
-  def index
-  end
-
-  def destroy
-  end
->>>>>>> carrierwave
 end
